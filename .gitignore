@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SearchFunctionality/.vs
+/SearchFunctionality/SearchFunctionality/bin/Debug/net6.0
+/SearchFunctionality/SearchFunctionality/obj
+/SearchFunctionality/SearchFunctionality.BusinessLogic/bin/Debug/net6.0
+/SearchFunctionality/SearchFunctionality.BusinessLogic/obj
+/SearchFunctionality/SearchFunctionality.DataContext/bin/Debug/net6.0
+/SearchFunctionality/SearchFunctionality.DataContext/obj
