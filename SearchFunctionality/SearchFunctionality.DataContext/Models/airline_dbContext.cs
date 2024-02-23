@@ -24,42 +24,33 @@ public partial class airline_dbContext : DbContext
         modelBuilder.Entity<Airport>(entity =>
         {
             entity.HasKey(e => e.Id)
-                .HasName("airport__id__pi")
+                .HasName("airport_id_pi")
                 .IsClustered(false);
-
-            entity.Property(e => e.Code)
-                .IsRequired()
-                .HasMaxLength(50);
         });
 
         modelBuilder.Entity<Flight>(entity =>
         {
             entity.HasKey(e => e.Id)
-                .HasName("flight__id__pi")
+                .HasName("flight_id_pi")
                 .IsClustered(false);
 
             entity.Property(e => e.ArrivalTime).HasColumnType("datetime");
             entity.Property(e => e.DepartureTime).HasColumnType("datetime");
-            entity.Property(e => e.FlightNumber).IsRequired();
 
             entity.HasOne(d => d.FromAirport).WithMany(p => p.FlightFromAirport)
                 .HasForeignKey(d => d.FromAirportId)
-                .HasConstraintName("flight__airportid__airport__fk");
+                .HasConstraintName("flight_airportidairport_fk");
 
             entity.HasOne(d => d.ToAirport).WithMany(p => p.FlightToAirport)
                 .HasForeignKey(d => d.ToAirportId)
-                .HasConstraintName("flight__toairportid__airport__fk");
+                .HasConstraintName("flight_toairportidairport_fk");
         });
 
         modelBuilder.Entity<RegisteredUsers>(entity =>
         {
             entity.HasNoKey();
 
-            entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
-            entity.Property(e => e.LastName).HasMaxLength(50);
-            entity.Property(e => e.LoginPassword).HasMaxLength(50);
-            entity.Property(e => e.UserName).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+#nullable disable warnings
 namespace SearchFunctionality.BusinessLogic.ResponseModels
 {
     public class FlightDetails

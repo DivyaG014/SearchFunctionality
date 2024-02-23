@@ -17,7 +17,7 @@ namespace SearchFunctionality.Middleware
 
         public async Task Invoke(HttpContext context, TelemetryClient telemetryClient)
         {
-            using (telemetryClient.StartOperation<RequestTelemetry>("HAVI.WMO.WebApi." + context.Request.Path))
+            using (telemetryClient.StartOperation<RequestTelemetry>("SearchFunctionality.WebAPI" + context.Request.Path))
             {
                 var originalResponseBody = context.Response.Body;
                 using var outputBuffer = new MemoryStream();
